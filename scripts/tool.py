@@ -98,7 +98,7 @@ def handle_photo():
     -----------
     最后将data.json文件存到博客的source/photos文件夹下
     '''
-    src_dir, des_dir = "../photos/", "../min_photos/"
+    src_dir, des_dir = "../photos", "../min_photos/"
     file_list = list_img_file(src_dir)
     list_info = []
     for i in range(len(file_list)):
@@ -131,7 +131,7 @@ def handle_photo():
             list_info[-1]['arr']['type'].append('image')
     list_info.reverse()  # 翻转
     final_dict = {"list": list_info}
-    with open("../../ins.json","w") as fp:
+    with open("../../CSTao.github.io/source/photos/ins.json","w") as fp:
         json.dump(final_dict, fp)
 
 def cut_photo():
