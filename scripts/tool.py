@@ -30,9 +30,12 @@ def list_img_file(directory):
     # print old_list
     new_list = []
     for filename in old_list:
-        name,fileformat = filename.split(".")
-        if fileformat.lower() == "jpg" or fileformat.lower() == "png" or fileformat.lower() == "gif":
-            new_list.append(filename)
+        try:
+            name,fileformat = filename.split(".")
+            if fileformat.lower() == "jpg" or fileformat.lower() == "png" or fileformat.lower() == "gif":
+                new_list.append(filename)
+        except:
+            print("文件错误")
     #print new_list
     return new_list
 
