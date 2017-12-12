@@ -30,12 +30,13 @@ def list_img_file(directory):
     # print old_list
     new_list = []
     for filename in old_list:
-        try:
-            name,fileformat = filename.split(".")
-            if fileformat.lower() == "jpg" or fileformat.lower() == "png" or fileformat.lower() == "gif":
-                new_list.append(filename)
-        except:
-            print("文件错误")
+        if not str(filename).endswith('.txt'):
+            try:
+                name,fileformat = filename.split(".")
+                if fileformat.lower() == "jpg" or fileformat.lower() == "png" or fileformat.lower() == "gif":
+                    new_list.append(filename)
+            except:
+                print("文件名格式错误 " + filename)
     #print new_list
     return new_list
 
@@ -113,11 +114,11 @@ def handle_photo():
         try:
             file_object = open(src_dir + '/' + filename + '.txt')
             all_text = file_object.readlines()
-            year_month = str(all_text[0]).replace('\n', '')
-            date = datetime.strptime(all_text[0], "%Y-%m-%d")
+            year_month = all_text[0][0:7]
+            date = datetime.strptime(str(all_text[0]).replace('\n', ''), "%Y-%m-%d")
             info = str(all_text[1:])
         except BaseException as ex:
-            print(ex)
+            print('图片[' + filename + '] 无说明或说明不符合要求')
         #date_str, info = filename.split("_")
         #date = datetime.strptime(date_str, "%Y-%m-%d")
         if i == 0:  # 处理第一个文件
