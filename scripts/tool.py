@@ -103,10 +103,23 @@ def handle_photo():
     list_info = []
     for i in range(len(file_list)):
         filename = file_list[i]
-        date_str, info = filename.split("_")
-        info, _ = info.split(".")
-        date = datetime.strptime(date_str, "%Y-%m-%d")
-        year_month = date_str[0:7]
+        info = filename
+        date = datetime.now()
+        year_month = ""
+        if date.month < 10:
+            year_month = date.year + '-0' + date.month
+        else:
+            year_month = date.year + '-' + date.month
+        file_object = open(filename)
+        try:
+            all_text = file_object.readlines()
+            year_month = date_str[0:7]
+            date = datetime.strptime(all_text[0], "%Y-%m-%d")
+            info = all_text[1:]
+        finally:
+            file_object.close()
+        #date_str, info = filename.split("_")
+        #date = datetime.strptime(date_str, "%Y-%m-%d")
         if i == 0:  # 处理第一个文件
             new_dict = {"date": year_month, "arr":{'year': date.year,
                                                                    'month': date.month,
