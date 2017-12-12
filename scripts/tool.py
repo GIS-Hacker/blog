@@ -107,20 +107,15 @@ def handle_photo():
         info = filename
         date = datetime.now()
         year_month = ""
-        if date.month < 10:
-            year_month = str(date.year) + '-0' + str(date.month)
-        else:
-            year_month = str(date.year) + '-' + str(date.month)
+        date_str, info = filename.split("_")
+        date = datetime.strptime(date_str, "%Y-%m-%d")
+        year_month = date_str[0:7]
         try:
             file_object = open(src_dir + '/' + filename + '.txt')
-            all_text = file_object.readlines()
-            year_month = all_text[0][0:7]
-            date = datetime.strptime(str(all_text[0]).replace('\n', ''), "%Y-%m-%d")
-            info = str(all_text[1:])
+            all_text = file_object.read()
+            info = all_text
         except BaseException as ex:
             print('图片[' + filename + '] 无说明或说明不符合要求')
-        #date_str, info = filename.split("_")
-        #date = datetime.strptime(date_str, "%Y-%m-%d")
         if i == 0:  # 处理第一个文件
             new_dict = {"date": year_month, "arr":{'year': date.year,
                                                                    'month': date.month,
