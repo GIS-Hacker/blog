@@ -102,6 +102,7 @@ def handle_photo():
     src_dir, des_dir = "../photos", "../min_photos/"
     file_list = list_img_file(src_dir)
     list_info = []
+    file_list.reverse()
     for i in range(len(file_list)):
         filename = file_list[i]
         info = filename
@@ -138,7 +139,7 @@ def handle_photo():
             list_info[-1]['arr']['link'].append(filename)
             list_info[-1]['arr']['text'].append(info)
             list_info[-1]['arr']['type'].append('image')
-    list_info.reverse()  # 翻转
+    #list_info.reverse()  # 翻转
     final_dict = {"list": list_info}
     with open("../../CSTao.github.io/source/photos/ins.json","w") as fp:
         json.dump(final_dict, fp)
