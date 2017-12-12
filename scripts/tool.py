@@ -113,7 +113,7 @@ def handle_photo():
         try:
             file_object = open(src_dir + '/' + filename + '.txt')
             all_text = file_object.readlines()
-            year_month = all_text[0]
+            year_month = str(all_text[0]).replace('\n', '')
             date = datetime.strptime(all_text[0], "%Y-%m-%d")
             info = str(all_text[1:])
         except BaseException as ex:
