@@ -107,17 +107,17 @@ def handle_photo():
         date = datetime.now()
         year_month = ""
         if date.month < 10:
-            year_month = date.year + '-0' + date.month
+            year_month = str(date.year) + '-0' + str(date.month)
         else:
-            year_month = date.year + '-' + date.month
-        file_object = open(filename)
+            year_month = str(date.year) + '-' + str(date.month)
         try:
+            file_object = open(src_dir + '/' + filename + '.txt')
             all_text = file_object.readlines()
-            year_month = date_str[0:7]
+            year_month = all_text[0]
             date = datetime.strptime(all_text[0], "%Y-%m-%d")
-            info = all_text[1:]
-        finally:
-            file_object.close()
+            info = str(all_text[1:])
+        except BaseException as ex:
+            print(ex)
         #date_str, info = filename.split("_")
         #date = datetime.strptime(date_str, "%Y-%m-%d")
         if i == 0:  # 处理第一个文件
