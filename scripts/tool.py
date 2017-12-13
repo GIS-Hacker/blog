@@ -109,7 +109,7 @@ def compress_photo():
         if file_list_des[i] in file_list_src:
             file_list_src.remove(file_list_des[i])
     compress('4', des_dir, square_dir, file_list_src)
-    # del_dir_tree(square_dir)
+    del_dir_tree(square_dir)
 
 def handle_photo():
     '''根据图片的文件名处理成需要的json格式的数据
