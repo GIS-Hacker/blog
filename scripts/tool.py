@@ -123,10 +123,10 @@ def handle_photo():
     file_list.reverse()
     for i in range(len(file_list)):
         filename = file_list[i]
-        info = filename
         date = datetime.now()
         year_month = ""
         date_str, info = filename.split("_")
+        info = info.split('.')[0]
         date = datetime.strptime(date_str, "%Y-%m-%d")
         year_month = date_str[0:7]
         try:
