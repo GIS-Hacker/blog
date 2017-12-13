@@ -75,13 +75,13 @@ def compress(choose, des_dir, src_dir, file_list):
 def compress_photo():
     '''调用压缩图片的函数
     '''
-    src_dir, des_dir = "../des_dir/", "../min_photos/"
+    square_dir, des_dir = "../square_photos/", "../min_photos/"
     file_list_src = []
-    if directory_exists(src_dir):
-        if not directory_exists(src_dir):
-            make_directory(src_dir)
+    if directory_exists(square_dir):
+        if not directory_exists(square_dir):
+            make_directory(square_dir)
         # business logic
-        file_list_src = list_img_file(src_dir)
+        file_list_src = list_img_file(square_dir)
     if directory_exists(des_dir):
         if not directory_exists(des_dir):
             make_directory(des_dir)
@@ -91,7 +91,7 @@ def compress_photo():
     for i in range(len(file_list_des)):
         if file_list_des[i] in file_list_src:
             file_list_src.remove(file_list_des[i])
-    compress('4', des_dir, src_dir, file_list_src)
+    compress('4', des_dir, square_dir, file_list_src)
 
 def handle_photo():
     '''根据图片的文件名处理成需要的json格式的数据
