@@ -183,7 +183,10 @@ def cut_photo():
             print_help()
             for infile in file_list:
                 img = Image.open(src_dir+infile)
-                Graphics(infile=src_dir+infile, outfile=des_dir + infile).cut_by_ratio()
+                if not img.width == img.height:
+                    Graphics(infile=src_dir+infile, outfile=des_dir + infile).cut_by_ratio()
+                else:
+                    img.save(des_dir + infile)
         else:
             pass
     else:
