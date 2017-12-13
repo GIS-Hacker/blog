@@ -95,8 +95,11 @@ def compress_photo():
     square_dir, des_dir = "../square_photos/", "../min_photos/"
     file_list_src = []
     if directory_exists(square_dir):
-        if not directory_exists(square_dir):
-            make_directory(square_dir)
+        if not directory_exists(des_dir):
+            make_directory(des_dir)
+        else:
+            del_dir_tree(des_dir)
+            make_directory(des_dir)
         # business logic
         file_list_src = list_img_file(square_dir)
     if directory_exists(des_dir):
