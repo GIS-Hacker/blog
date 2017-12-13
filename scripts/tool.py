@@ -12,6 +12,23 @@ SIZE_small = 1.5
 SIZE_more_small = 2.0
 SIZE_more_small_small = 3.0
 
+def del_dir_tree(path):
+    ''' 递归删除目录及其子目录,　子文件'''
+    if os.path.isfile(path):
+        try:
+            os.remove(path)
+        except Exception as e:
+            #pass
+            print(e)
+    elif os.path.isdir(path):
+        for item in os.listdir(path):
+            itempath = os.path.join(path, item)
+            del_dir_tree(itempath)
+        try:
+            os.rmdir(path) # 删除空目录
+        except Exception as e:
+            #pass
+            print(e)
 
 def make_directory(directory):
     """创建目录"""
@@ -92,6 +109,7 @@ def compress_photo():
         if file_list_des[i] in file_list_src:
             file_list_src.remove(file_list_des[i])
     compress('4', des_dir, square_dir, file_list_src)
+    del_dir_tree(square_dir)
 
 def handle_photo():
     '''根据图片的文件名处理成需要的json格式的数据
