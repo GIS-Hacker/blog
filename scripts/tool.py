@@ -1,4 +1,4 @@
-#coding: utf-8
+﻿#coding: utf-8
 from PIL import Image
 import os
 import sys
@@ -161,7 +161,7 @@ def handle_photo():
             list_info[-1]['arr']['type'].append('image')
     #list_info.reverse()  # 翻转
     final_dict = {"list": list_info}
-    with open("../../CSTao.github.io/source/photos/ins.json","w") as fp:
+    with open("../../CSTao.github.io/source/gallery/ins.json","w") as fp:
         json.dump(final_dict, fp)
 
 def cut_photo():
