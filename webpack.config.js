@@ -3,6 +3,8 @@ var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanPlugin = require('clean-webpack-plugin');
+var TransferWebpackPlugin = require('transfer-webpack-plugin');
+var path = require("path")
 
 // 模板压缩
 // 详见：https://github.com/kangax/html-minifier#options-quick-reference
@@ -73,7 +75,11 @@ module.exports = {
       minify: minifyHTML,
       template: './source-src/css.ejs',
       filename: '../layout/_partial/css.ejs'
-    })
+    }),
+    //把指定文件夹下的文件复制到指定的目录
+    new TransferWebpackPlugin([
+      {from: 'static'}
+    ], path.resolve(__dirname,"source-src")),
   ],
   watch: true
 }
