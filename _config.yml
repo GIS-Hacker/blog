@@ -2,14 +2,19 @@
 
 menu:
   主页: /
-  随笔: /tags/随笔/
+  分类: /categories/
+  相册: /gallery/
+  留言: /messages/
 
 # SubNav
 subnav:
-  github: "#"
-  weibo: "#"
-  rss: "#"
-  zhihu: "#"
+  mail: "http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=whucstao@qq.com"
+  github: "https://github.com/CS-Tao"
+  #zhihu: "https://www.zhihu.com/people/tao-chun-sheng-21/activities"
+  weibo: "http://weibo.com/tcs990296951"
+  #google: "https://plus.google.com/115901576244995527191"
+  #twitter: "https://twitter.com/TaoChengSheng"
+  #linkedin: "https://www.linkedin.com/in/%E6%98%A5%E7%94%9F-%E9%99%B6-9917b3148/"
   #qq: "#"
   #weixin: "#"
   #jianshu: "#"
@@ -17,11 +22,7 @@ subnav:
   #segmentfault: "#"
   #bilibili: "#"
   #acfun: "#"
-  #mail: "mailto:litten225@qq.com"
   #facebook: "#"
-  #google: "#"
-  #twitter: "#"
-  #linkedin: "#"
 
 rss: /atom.xml
 
@@ -33,29 +34,29 @@ root: /
 # Content
 
 # 文章太长，截断按钮文字
-excerpt_link: more
+excerpt_link: '查看更多'
 # 文章卡片右下角常驻链接，不需要请设置为false
 show_all_link: '展开全文'
 # 数学公式
-mathjax: false
+mathjax: true
 # 是否在新窗口打开链接
-open_in_new: false
+open_in_new: true
 
 # 打赏
 # 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
-reward_type: 2
+reward_type: 1
 # 打赏wording
-reward_wording: '谢谢你请我吃糖果'
+reward_wording: '纯属娱乐'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
-alipay: 
+alipay: /img/alipayimg.jpg
 # 微信二维码图片地址
-weixin: 
+weixin: /img/wechatimg.jpg
 
 # 目录
 # 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
 toc: 1
 # 根据自己的习惯来设置，如果你的目录标题习惯有标号，置为true即可隐藏hexo重复的序号；否则置为false
-toc_hide_index: true
+toc_hide_index: false
 # 目录为空时的提示
 toc_empty_wording: '目录，不存在的…'
 
@@ -63,12 +64,12 @@ toc_empty_wording: '目录，不存在的…'
 top: true
 
 # Miscellaneous
-baidu_analytics: ''
-google_analytics: ''
+google_analytics: 
+baidu_analytics: 
 favicon: /favicon.png
 
 #你的头像url
-avatar:
+avatar: /img/avatar.png
 
 #是否开启分享
 share_jia: true
@@ -91,8 +92,8 @@ changyan_conf: false
 disqus: false
 
 #5、Gitment
-gitment_owner: false      #你的 GitHub ID
-gitment_repo: ''          #存储评论的 repo
+gitment_owner: CS-Tao      #你的 GitHub ID
+gitment_repo: 'CS-Tao.github.io'          #存储评论的 repo
 gitment_oauth:
   client_id: ''           #client ID
   client_secret: ''       #client secret
@@ -116,15 +117,21 @@ slider:
 #  friends: false
 smart_menu:
   innerArchive: '所有文章'
-  friends: '友链'
-  aboutme: '关于我'
+  friends: '友情链接'
+  aboutme: false
+
+aboutme: false
 
 friends:
-  友情链接1: http://localhost:4000/
-  友情链接2: http://localhost:4000/
-  友情链接3: http://localhost:4000/
-  友情链接4: http://localhost:4000/
-  友情链接5: http://localhost:4000/
-  友情链接6: http://localhost:4000/
+  Mirror: "http://home.cs-tao.cc/"
+  Chaogui Kang: "http://urbancolab.org/"
+  HPDell: "https://hpdell.github.io/"
+  Wuchen: "https://mysticfalls0709.github.io/"
+  blablaxiaomoxian: "https://blablaxiaomoxian.github.io/"
 
-aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
+# 不蒜子网站计数设置
+# http://ibruce.info/2015/04/04/busuanzi/
+#visit_counter:
+#  on: true
+#  site_visit: 网站访客数
+#  page_visit: false

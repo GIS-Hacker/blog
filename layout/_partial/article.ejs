@@ -104,7 +104,7 @@
     }) %>
   <% } %>
 
-  <% if (theme.disqus || config.disqus_shortname){ %>
+  <% if (theme.disqus && config.disqus_shortname){ %>
     <section id="comments">
       <div id="disqus_thread"></div>
         <script type="text/javascript">
