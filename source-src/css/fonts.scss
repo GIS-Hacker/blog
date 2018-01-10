@@ -5,11 +5,9 @@
   url('./fonts/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
   url('./fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
-@font-face {font-family: "head";
-  src: url('./fonts/iconfont.eot'); /* IE9*/
-  src: url('./fonts/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('./fonts/head.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('./fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+@font-face {
+  font-family: "head";
+  src: url('./fonts/head.ttf');
 }
 
 [class^="icon-"], [class*=" icon-"] {
