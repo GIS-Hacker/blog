@@ -9,7 +9,7 @@ window.PhotoSwipeUI_Default = PhotoSwipeUI_Default
 
 function init() {
 	let pswpElement = document.querySelectorAll('.pswp')[0];
-	let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+	let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img) img:not(.noswiper)'))
 
 	$imgArr.forEach(($em, i) => {
 		$em.onclick = () => {
