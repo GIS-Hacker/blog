@@ -60,6 +60,7 @@ html, body, #container {
     top: -29px;
     width: 100%;
     color: #ddd;
+    font-family: "head", "Roboto", serif;
 }
 .mobile-mask {
     width: 100%;
@@ -303,6 +304,7 @@ html, body, #container {
         position: relative;
         z-index: 2;
         color: #424242;
+        font-family: "head", "Roboto", serif;
     }
 	.overlay{
 		height: 110px;

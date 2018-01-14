@@ -1,7 +1,7 @@
 # Header
 
 menu:
-  主页: /
+  主页: http://home.cs-tao.cc/
   归档: /collection/
   分类: /categories/
   留言: /messages/
@@ -10,8 +10,9 @@ menu:
 subnav:
   mail: "http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=whucstao@qq.com"
   github: "https://github.com/CS-Tao"
+  rss: /atom.xml
   #zhihu: "https://www.zhihu.com/people/tao-chun-sheng-21/activities"
-  weibo: "http://weibo.com/tcs990296951"
+  #weibo: "http://weibo.com/tcs990296951"
   #google: "https://plus.google.com/115901576244995527191"
   #twitter: "https://twitter.com/TaoChengSheng"
   #linkedin: "https://www.linkedin.com/in/%E6%98%A5%E7%94%9F-%E9%99%B6-9917b3148/"
@@ -24,7 +25,6 @@ subnav:
   #acfun: "#"
   #facebook: "#"
 
-rss: /atom.xml
 
 # 是否需要修改 root 路径
 # 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，
@@ -123,7 +123,6 @@ smart_menu:
 aboutme: <p align="center">大三学生<br><br>现就读与武汉大学</p>
 
 friends:
-  Mirror: "http://home.cs-tao.cc/"
   Chaogui Kang: "http://urbancolab.org/"
   HPDell: "https://hpdell.github.io/"
   Wuchen: "https://mysticfalls0709.github.io/"
