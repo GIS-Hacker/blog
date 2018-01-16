@@ -129,4 +129,13 @@
       url: config.url+url_for(post.path)
     }) %>
   <% } %>
+
+  <% if (theme.uyan){ %>
+    <%- partial('post/uyan', {uyan_id: theme.uyan}) %>
+  <% } %>
+
+  <% if (theme.livere){ %>
+    <%- partial('post/livere', {livere_id: theme.livere}) %>
+  <% } %>
+
 <% } %>
