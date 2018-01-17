@@ -1,3 +1,0 @@
-home.cs-tao.cc/blog/技术相关/个人独立主页与Hexo博客的集成/
-home.cs-tao.cc/blog/随笔/江城-初雪/
-home.cs-tao.cc/blog/随笔/一部致郁系暗黑童话/
