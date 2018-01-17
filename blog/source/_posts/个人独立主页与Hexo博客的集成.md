@@ -7,11 +7,15 @@ tags: [github, Hexo]
 reward: true
 ---
 最近在写网页的时候，发现了一个很不错的基于Canvas的樱花飘落背景，于是想着怎么把它做成主页嵌入到自己的博客中，最开始笔者是用Github小号建立的Github Pages对该主页进行托管，然后在该主页中建立链接，指向我经常使用的Github账号的Github Pages的首页。
-之后为了代码的通用性，我将该主页改造成了ejs模板，并利用[ejs-on-command](https://github.com/shennan/ejs-on-command)工具将其进行渲染为html，也是为了代码的通用性，我开始研究如何把这两个账号Github Pages融合为一个，也就是本篇文章将要讲解的内容：如何把个人独立的主页集成到Hexo博客中并利用命令`Hexo d`推送到Github Pages。本文将介绍两种方法：
+之后为了代码的通用性，我将该主页改造成了ejs模板，并利用[ejs-on-command](https://github.com/shennan/ejs-on-command)工具将其进行渲染为html，也是为了代码的通用性，我开始研究如何把这两个账号Github Pages融合为一个，也就是本篇文章将要讲解的内容：
+>如何把独立的主页集成到Hexo博客中并利用命令`Hexo d`推送到Github Pages。
+
+本文将介绍两种方法：
 
 - 方法一：将网站源码均放入`<你的名字>.github.io`仓库中，这样可以很方便地向其他平台移植，这样可以很方便地向其他平台移植，但会显得`<你的名字>.github.io`仓库比较臃肿，不好管理。
 
 - 方法二：只将主页源码放入`<你的名字>.github.io`仓库中，利用Github为项目主页提供的`gh-pages`分支，重定向Hexo博客源码的位置，这种方法可以使主页和博客的管理更加方便。
+
 <!-- more -->
 
 ## 方法一
