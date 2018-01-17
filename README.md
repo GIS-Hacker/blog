@@ -1,6 +1,6 @@
 # 博客相册
 
-本仓库用于给博客的相册提供照片源，包括原图和缩略图。demo：[http://home.cs-tao.cc/blog/gallery](http://home.cs-tao.cc/blog/gallery)
+本仓库用于给博客的相册提供照片源，包括原图和缩略图。demo：[http://home.cs-tao.cc/blog/gallery/](http://home.cs-tao.cc/blog/gallery/)
 
 # 目录说明
 
