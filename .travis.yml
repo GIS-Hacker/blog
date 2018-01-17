@@ -28,7 +28,7 @@ after_script:
   - git config user.email "990296951@qq.com"
   - git add .
   - git commit -m "Update docs by travisCI"
-  - git push --force --quiet "https://${GH_TOKEN}@${GIT_PAGE_REF}" gh-pages:gh-pages
+  - git push --force --quiet "https://${GH_TOKEN}@${GIT_PAGE_REF}" master:gh-pages
 
 branches:
   only:
