@@ -17,6 +17,7 @@ install:
   - npm install
 
 before_script:
+  - git submodule update --remote --merge
 
 script:
   - hexo g
