@@ -17,15 +17,13 @@ install:
   - npm install
 
 before_script:
-  - cd blog
   - git submodule update --remote --merge
 
 script:
-  - cd blog
   - hexo g
 
 after_script:
-  - cd blog/public
+  - cd public
   - git init
   - git config user.name "CS-Tao"
   - git config user.email "990296951@qq.com"
