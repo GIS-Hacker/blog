@@ -1,9 +1,9 @@
 [submodule "photo-album"]
 	path = photo-album
-	url = https://github.com/CS-Tao/photo-album.git
+	url = https://github.com/CS-Tao/blog.git
 [submodule "CS-Tao.github.io"]
 	path = CS-Tao.github.io
-	url = https://github.com/CS-Tao/CS-Tao.github.io.git
+	url = https://github.com/CS-Tao/blog.git
 [submodule "blog/themes/hexo-theme-yilia"]
 	path = blog/themes/hexo-theme-yilia
-	url = https://github.com/CS-Tao/hexo-theme-yilia.git
+	url = https://github.com/CS-Tao/blog.git
