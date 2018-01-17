@@ -35,7 +35,7 @@ after_script:
 
 branches:
   only:
-    - gh-pages
+    - source
 env:
  global:
    - GIT_PAGE_REF: github.com/CS-Tao/blog.git
