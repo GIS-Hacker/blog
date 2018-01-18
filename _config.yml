@@ -92,11 +92,11 @@ changyan_conf: false
 disqus: false
 
 #5、Gitment
-gitment_owner: CS-Tao      #你的 GitHub ID
-gitment_repo: 'blog'          #存储评论的 repo
+gitment_owner: GIS-Hacker     #你的 GitHub ID
+gitment_repo: 'CS-Tao.github.io-comments '          #存储评论的 repo
 gitment_oauth:
-  client_id: '6a448300be1a650075b2'           #client ID
-  client_secret: 'f411a9ef700c4580c3e282cf46a541e4592b7081'       #client secret
+  client_id: 'afb484520f02435d9ef4'           #client ID
+  client_secret: 'cec4ead127d888767428def9dd8d5b048673ac5b'       #client secret
 
 #6、来必力
 #livere: MTAyMC8zMzI4OS85ODQ2
