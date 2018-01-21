@@ -47,6 +47,7 @@
 	clear: both;
 	width: 100%;
 	text-align: left;
+	display: block;
 }
 .instagram .album li{
 	list-style: none;
