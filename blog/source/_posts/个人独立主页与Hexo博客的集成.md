@@ -21,8 +21,6 @@ reward: true
 
 ## 方法一
 
-### Hexo博客配置
-
 - 为了实现个人主页和博客的兼容，需要修改Hexo博客根目录配置文件中的`root、url、public_dir`的值，比如我的（以`blog`作为博客的路径为例，这样配置后便可以将原博客的源码移动到`public/blog/`文件夹下，博客访问链接变为了`<原网站链接>/blog/`）：
     ```yml
     url: https://cs-tao.github.io/blog/
