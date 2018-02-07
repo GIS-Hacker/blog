@@ -12,8 +12,8 @@ share_jia: false
 
 ---
 
-<a href="/blog/archives/" target="_self" style="color:#666;"><h1>📷 相册</h1></a>
+<a href="/blog/gallery/" target="_self" style="color:#666;"><h1>📷 相册</h1></a>
 
 ---
 
-<a href="/blog/archives/" target="_self" style="color:#666;"><h1>📖 书架</h1></a>
+<a href="/blog/reading/" target="_self" style="color:#666;"><h1>📖 书架</h1></a>
