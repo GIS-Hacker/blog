@@ -94,6 +94,7 @@ disqus: false
 #5、Gitment
 gitment_owner: GIS-Hacker     #你的 GitHub ID
 gitment_repo: 'CS-Tao.github.io-comments'          #存储评论的 repo
+id: 'window.location.pathname' #页面 ID
 gitment_oauth:
   client_id: 'afb484520f02435d9ef4'           #client ID
   client_secret: 'cec4ead127d888767428def9dd8d5b048673ac5b'       #client secret
