@@ -35,7 +35,7 @@ comments: true
 
 {% readStream %}
 {% readItems https://movie.douban.com/subject/26862829/ https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/douban_pics/movies/芳华.jpg 芳华 %}
-{% readItems http://home.cs-tao.cc/blog/随笔/一部致郁系暗黑童话/ https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/douban_pics/movies/被遗忘的孩子.jpg 被遗忘的孩子 %}
+{% readItems https://home.cs-tao.cc/blog/随笔/一部致郁系暗黑童话/ https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/douban_pics/movies/被遗忘的孩子.jpg 被遗忘的孩子 %}
 {% readItems https://movie.douban.com/subject/26235354/ https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/douban_pics/movies/权利的游戏7.jpg 权利的游戏7 %}
 {% readItems https://movie.douban.com/subject/1291561/ https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/douban_pics/movies/千与千寻.jpg 千与千寻 %}
 {% readItems https://movie.douban.com/subject/1308807/ https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/douban_pics/movies/哈尔的移动城堡.jpg 哈尔的移动城堡 %}
