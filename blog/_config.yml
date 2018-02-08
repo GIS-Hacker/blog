@@ -139,6 +139,6 @@ image_stream:
 
 baidu_url_submit:
   count: 3 ## 提交最新的一个链接
-  host: home.cs-tao.cc/blog ## 在百度站长平台中注册的域名
+  host: https://home.cs-tao.cc/blog ## 在百度站长平台中注册的域名
   token: tICretOGoGgSk72g
   path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
