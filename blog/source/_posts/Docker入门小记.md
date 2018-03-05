@@ -17,7 +17,7 @@ Docker 是 DotCloud 公司开发的基于 LXC（Linux Container，一种内核�
 
 我们可以发现近几年云计算非常流行，那么云计算是什么东西呢？云计算是指通过互联网提供动态易扩展且经常是虚拟化的资源，被划分为IaaS（Infrastructure as a Service）、PaaS（Platform as a Service）、SaaS（Software as a Service）。但其中 PaaS 既不如 IaaS 那样灵活而自由，也不如 SaaS 那样可以直接推向消费者。有人说 PaaS 是未来的云计算，但是近几年 IaaS 和 SaaS 各自发展，反而是 PaaS 几乎裹足不前，虽然各种应用引擎层出不穷，但是没有什么人专门为 PaaS 开发应用。
 
-这个时候Docker 的出现完美地解决了这个问题，Docker 很好地实现了 PaaS，如果把云计算比作货轮的话，Docker 就是放在这上面的集装箱了。
+这个时候Docker 的出现完美地解决了这个问题，Docker 很好地实现了 PaaS，如果把云计算比作货轮的话，Docker 就是放在货轮上的集装箱了。
 
 Docker 的出现得益于 Linux 系统的 Namespace 机制和 CGroup 机制。
 
