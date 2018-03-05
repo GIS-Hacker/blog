@@ -83,7 +83,7 @@ Namespace（命名空间）机制是 Linux 为我们提供的用于分离进程�
     $ sudo apt-get install docker-ce
     ```
 
-### Docker 基础记录
+### Docker 命令记录
 
 因为 Docker 的运行绑定了`/var/run/docker.sock`文件，用于 docker 的守护进程（Docker daemon）和容器进程之间通信，而该文件的访问权限为660，必须使用 sudo 命令才有该文件的执行权限。
 
