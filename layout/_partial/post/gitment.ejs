@@ -2,11 +2,8 @@
 <link rel="stylesheet" href="//GIS-Hacker.github.io/css/thirdparty/gitment.css">
 <script src="//GIS-Hacker.github.io/js/thirdparty/gitment.browser.js"></script>
 <script>
-var id = "<%=url%>"
-if(id.length >= 50)
-  id = "<%=page.date%>"
 var gitment = new Gitment({
-  id: id,
+  id: "<%=page.title%>",
   owner: '<%=theme.gitment_owner%>',
   repo: '<%=theme.gitment_repo%>',
   oauth: {
