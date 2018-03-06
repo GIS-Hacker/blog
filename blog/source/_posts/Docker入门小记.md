@@ -5,8 +5,8 @@ categories: 技术相关
 tags: [docker]
 toc: true
 ---
-<img src="https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/docker.png" width="45%" height="45%">
-原计划是准备寒假在家学习 Docker 的，但很无奈的是，回到家的我完全不知道如何写下新年的第一段代码，很自然地我就在吃和玩中度过了整个寒假，虽然没有完成放假前制定的计划，但毕竟是过年啊，还是玩得很开心！</br>不过说来也巧，回到学校后，由于某些不可抗力，搁置已久的老挝消防项目又得开始了，原来负责服务器端Docker部署的某大神学长外出实习，重新部署 Docker 的任务就落在了我的头上（无奈.jpg）。</br>我原本是不准备记录下这篇文章的，但是当我写完了 Dockerfile，向服务器部署的时候发现，这次部署可能需要 —— 三个小时？一个人在图书馆坐着，像看剧一样地看着命令终端不断输出完成进度，实在无聊，于是去满楼溜达了半小时，然后看了会书，回到电脑旁，不知道有什么事可以做，就把最近两天学到的知识记录一下吧。
+<img src="https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/docker.png" width="65%" height="65%">
+原本是准备寒假在家学习 Docker 的，但很无奈的是，回到家的我完全不知道如何写下新年的第一段代码，很自然地我就在吃和玩中度过了整个寒假，虽然没有完成放假前制定的计划，但毕竟是过年啊，还是玩得很开心！</br>不过说来也巧，回到学校后，由于某些不可抗力，搁置已久的老挝消防项目又得开始了，原来负责服务器端Docker部署的某大神学长外出实习，重新部署 Docker 的任务就落在了我的头上（无奈.jpg）。</br>我原本是不准备记录下这篇文章的，但是当我写完了 Dockerfile，向服务器部署的时候发现，这次部署可能需要 —— 三个小时？一个人在图书馆坐着，像看剧一样地看着命令终端不断输出完成进度，实在无聊，于是去满楼溜达了半小时，然后看了会书，回到电脑旁，不知道有什么事可以做，就想着把最近两天学到的知识记录一下吧。
 <!-- more -->
 
 ### Docker 是什么？
@@ -15,11 +15,14 @@ Docker 是 DotCloud 公司开发的基于 LXC（Linux Container，一种内核�
 
 ### Docker 原理
 
-我们可以发现近几年云计算非常流行，那么云计算是什么东西呢？云计算是指通过互联网提供动态易扩展且经常是虚拟化的资源，被划分为IaaS（Infrastructure as a Service）、PaaS（Platform as a Service）、SaaS（Software as a Service）。但其中 PaaS 既不如 IaaS 那样灵活而自由，也不如 SaaS 那样可以直接推向消费者。有人说 PaaS 是未来的云计算，但是近几年 IaaS 和 SaaS 各自发展，反而是 PaaS 几乎裹足不前，虽然各种应用引擎层出不穷，但是没有什么人专门为 PaaS 开发应用。
+我们可以发现近几年云计算非常流行，那么云计算是什么东西呢？
+>云计算是指通过互联网提供动态易扩展且经常是虚拟化的资源，被划分为IaaS（Infrastructure as a Service）、PaaS（Platform as a Service）、SaaS（Software as a Service）。
 
-这个时候Docker 的出现完美地解决了这个问题，Docker 很好地实现了 PaaS，如果把云计算比作货轮的话，Docker 就是放在货轮上的集装箱了。
+但其中 PaaS 既不如 IaaS 那样灵活而自由，也不如 SaaS 那样可以直接推向消费者。有人说 PaaS 是未来的云计算，但是近几年 IaaS 和 SaaS 各自发展，反而是 PaaS 几乎裹足不前，虽然各种应用引擎层出不穷，但是没有什么人专门为 PaaS 开发应用。
 
-Docker 的出现得益于 Linux 系统的 Namespace 机制和 CGroup 机制。
+这个时候 Docker 的出现完美地解决了这个问题，Docker 很好地实现了 PaaS，如果把云计算比作货轮的话，Docker 就是放在货轮上的集装箱了。
+
+最开始我以为 Docker 和虚拟机差不多，因为都实现了虚拟化，而且都是可移植的。但是之后在各大技术交流平台上探索，我发现，这两个技术在本质上是有区别的，虚拟机直接面向了硬件层，而 Docker 则是面向操作系统层，它的出现和发展得益于 Linux 系统的 Namespace 机制和 CGroup 机制，这两个机制保证了 Docker 容器和外部环境的隔离，保障了PaaS的安全性。
 
 - Namespace 机制
 
