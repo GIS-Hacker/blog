@@ -155,91 +155,91 @@ Namespace（命名空间）机制是 Linux 为我们提供的用于分离进程�
 
 容器和镜像的大概关系可以参考下图：
 
-<img src="http://dockone.io/uploads/article/20151103/d6ad9c257d160164480b25b278f4a2ad.png" width="65%" height="65%">
+<img src="http://dockone.io/uploads/article/20151103/d6ad9c257d160164480b25b278f4a2ad.png" width="85%" height="85%">
 如图，镜像是分层的文件，每一层都是只读的，其分层的方式类似于git的版本控制方式，除了最底层，每一层都会有它的父层，每一层都记录了和上一层的差异（diff），而容器则是在顶层运行的一个可读写层。
 
 现在，我们可以通过特定的命令来了解一下它们之间的关系。
 
 - `sudo docker create <image-id>`
-<img src="http://dockerone.com/uploads/article/20151031/1397bbddca6651a3ae0316daa8d6d1cd.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/1397bbddca6651a3ae0316daa8d6d1cd.jpg" width="85%" height="85%">
 docker create 命令为指定的镜像（image）添加了一个可读写层，构成了一个新的容器，但这个容器并没有运行。
-<img src="http://dockerone.com/uploads/article/20151103/bbe622329b399778b077617ae6468676.png" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151103/bbe622329b399778b077617ae6468676.png" width="85%" height="85%">
 
 - `sudo docker start <container-id>`
-<img src="http://dockerone.com/uploads/article/20151031/3f08537e309b923d049fdde3d3a1f926.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/3f08537e309b923d049fdde3d3a1f926.jpg" width="85%" height="85%">
 Docker start命令为容器文件系统创建了一个进程隔离空间。注意，每一个容器只能够有一个进程隔离空间。
 
 - `sudo docker run <image-id>`
-<img src="http://dockerone.com/uploads/article/20151031/4178f2b64f6a2eeb994866931417f263.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/4178f2b64f6a2eeb994866931417f263.jpg" width="85%" height="85%">
 我们可以看到docker start命令和docker run命令都生成了容器，它们有什么区别呢？
-<img src="http://dockerone.com/uploads/article/20151103/ea18907dedcd8893b39ae1f9e3ad8a3e.png" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151103/ea18907dedcd8893b39ae1f9e3ad8a3e.png" width="85%" height="85%">
 从图片可以看出，docker run 命令先是利用镜像创建了一个容器，然后运行这个容器。
 
 - `sudo docker ps`
-<img src="http://dockerone.com/uploads/article/20151031/fafeb4eb072e64b54b9979930a6d8db7.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/fafeb4eb072e64b54b9979930a6d8db7.jpg" width="85%" height="85%">
 docker ps 命令会列出所有运行中的容器。这隐藏了非运行态容器的存在，如果想要找出这些容器，我们需要使用下面这个命令。
 
 - `sudo docker ps –a`
-<img src="http://dockerone.com/uploads/article/20151031/120d394e57a03a5bb996b23e6e373cf1.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/120d394e57a03a5bb996b23e6e373cf1.jpg" width="85%" height="85%">
 docker ps –a命令会列出所有的容器，不管是运行的，还是停止的。
 
 - `sudo docker images`
-<img src="http://dockerone.com/uploads/article/20151031/f8b34de7f7f325e2933aac5cc679e224.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/f8b34de7f7f325e2933aac5cc679e224.jpg" width="85%" height="85%">
 docker images命令会列出了所有顶层（top-level）镜像。
 
 - `sudo docker images –a`
-<img src="http://dockerone.com/uploads/article/20151031/6b3d2d1cae5a26961dc554fc05783b22.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/6b3d2d1cae5a26961dc554fc05783b22.jpg" width="85%" height="85%">
 docker images –a命令列出了所有的镜像，也可以说是列出了所有的可读层。如果你想要查看某一个image-id下的所有层，可以使用docker history来查看。
 
 - `sudo docker stop <container-id>`
-<img src="http://dockerone.com/uploads/article/20151031/081cf8fbe8ab4dea4130ce2f25eae071.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/081cf8fbe8ab4dea4130ce2f25eae071.jpg" width="85%" height="85%">
 docker stop命令会向运行中的容器发送一个SIGTERM的信号，然后停止所有的进程。
 
 - `sudo docker kill <container-id>`
-<img src="http://dockerone.com/uploads/article/20151031/8aeee0c4c1134ee9d0c2200e03defcf4.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/8aeee0c4c1134ee9d0c2200e03defcf4.jpg" width="85%" height="85%">
 docker kill 命令向所有运行在容器中的进程发送了一个不友好的SIGKILL信号。
 
 - `sudo docker pause <container-id>`
-<img src="http://dockerone.com/uploads/article/20151031/2b34576a2187a972d4cc1cf9346658e2.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/2b34576a2187a972d4cc1cf9346658e2.jpg" width="85%" height="85%">
 docker stop和docker kill命令会发送UNIX的信号给运行中的进程，docker pause命令则不一样，它利用了cgroups的特性将运行中的进程空间暂停。但是这种方式的不足之处在于发送一个SIGTSTP信号对于进程来说不够简单易懂，以至于不能够让所有进程暂停。
 
 - `sudo docker rm <container-id>`
-<img src="http://dockerone.com/uploads/article/20151031/bba4521356b43813a634a0859fa53743.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/bba4521356b43813a634a0859fa53743.jpg" width="85%" height="85%">
 docker rm命令会移除构成容器的可读写层。注意，这个命令只能对非运行态容器执行。
 
 - `sudo docker rmi <image-id>`
-<img src="http://dockerone.com/uploads/article/20151031/df0fadb17158696cdce49a8e30f8c4c4.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/df0fadb17158696cdce49a8e30f8c4c4.jpg" width="85%" height="85%">
 docker rmi 命令会移除构成镜像的一个只读层。你只能够使用docker rmi来移除最顶层（top level layer）（也可以说是镜像），你也可以使用-f参数来强制删除中间的只读层。
 
 - `sudo docker commit <container-id>`
-<img src="http://dockerone.com/uploads/article/20151031/f642149d0144c83679dd228c93a91a37.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/f642149d0144c83679dd228c93a91a37.jpg" width="85%" height="85%">
 docker commit命令将容器的可读写层转换为一个只读层，这样就把一个容器转换成了不可变的镜像。
-<img src="http://dockerone.com/uploads/article/20151103/a206a291a8d4b9c968061b853f92ad4e.png" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151103/a206a291a8d4b9c968061b853f92ad4e.png" width="85%" height="85%">
 
 - `sudo docker build`
-<img src="http://dockerone.com/uploads/article/20151031/d569d50a2c6cb4cdb07eb4cfc0712ab0.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/d569d50a2c6cb4cdb07eb4cfc0712ab0.jpg" width="85%" height="85%">
 docker build命令它会反复的执行多个命令，如下图
-<img src="http://dockerone.com/uploads/article/20151103/17f6091cc228e14eb151cc8909b4ab00.png" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151103/17f6091cc228e14eb151cc8909b4ab00.png" width="85%" height="85%">
 docker build命令根据Dockerfile文件中的FROM指令获取到镜像，然后重复地1）run（create和start）、2）修改、3）commit。在循环中的每一步都会生成一个新的层，因此许多新的层会被创建。
 
 - `sudo docker exec <running-container-id>`
-<img src="http://dockerone.com/uploads/article/20151031/91b0fd6b6b3c0d372eafbe40221835a8.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/91b0fd6b6b3c0d372eafbe40221835a8.jpg" width="85%" height="85%">
 docker exec 命令会在运行中的容器执行一个新进程。
 
 - `sudo docker inspect <container-id> or <image-id>`
-<img src="http://dockerone.com/uploads/article/20151031/eb03a3d750a4da43fc5825d8336314c1.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/eb03a3d750a4da43fc5825d8336314c1.jpg" width="85%" height="85%">
 docker inspect命令会提取出容器或者镜像最顶层的元数据。
 
 - `sudo docker save <image-id>`
-<img src="http://dockerone.com/uploads/article/20151031/db73c5aad485bbacb3e97d0a8ddcdea4.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/db73c5aad485bbacb3e97d0a8ddcdea4.jpg" width="85%" height="85%">
 docker save命令会创建一个镜像的压缩文件，这个文件能够在另外一个主机的Docker上使用。和export命令不同，这个命令为每一个层都保存了它们的元数据。这个命令只能对镜像生效。
 
 - `sudo docker export <container-id>`
-<img src="http://dockerone.com/uploads/article/20151031/a766de204b53f10d5f56c36955b6b0ee.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/a766de204b53f10d5f56c36955b6b0ee.jpg" width="85%" height="85%">
 docker export命令创建一个tar文件，并且移除了元数据和不必要的层，将多个层整合成了一个层，只保存了当前统一视角看到的内容
 
 - `sudo docker history <image-id>`
-<img src="http://dockerone.com/uploads/article/20151031/f20de692d890a55b84ee5540c62e054e.jpg" width="65%" height="65%">
+<img src="http://dockerone.com/uploads/article/20151031/f20de692d890a55b84ee5540c62e054e.jpg" width="85%" height="85%">
 docker history命令递归地输出指定镜像的历史镜像。
 
 ### 参考文章
