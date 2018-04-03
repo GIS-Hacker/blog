@@ -187,7 +187,7 @@ Element-ui 是由饿了么前端出品的一套 Vue.js 后台组件库，组件�
 
 - 添加 ArcGIS API for JavaScript 组件
 
-这应该是本次开发中遇见的最大的问题了，ArcGIS API 并没有像其他组件一样提供一个可供直接导入仓库，而是鼓励开发者使用 [esri-loader](https://github.com/Esri/esri-loader) 异步导入 Js 文件，当然我们也做了测试，因为该 Js 文件较大，如果直接利用 Webpack 导入该文件的确会使 Webpack 卡死。这个异步导入的过程需要从 Esri 官网加载 Js 文件，而国内的 GFW 和某学院院办楼里的网关，一个对 ArcGIS 官网限速，一个直接屏蔽了该网站，为了调试程序，我们小组开热点不知道花了多少流量...
+这应该是本次开发中遇见的最大的问题了，ArcGIS API 并没有像其他组件一样提供一个可供直接导入源码的仓库，而是鼓励开发者使用 [esri-loader](https://github.com/Esri/esri-loader) 异步导入 Js 文件，当然我们也做了测试，因为该 Js 文件较大，如果直接利用 Webpack 导入该文件的确会使 Webpack 卡死。这个异步导入的过程需要从 Esri 官网加载 Js 文件，而国内的 GFW 和某学院院办楼里的网关，一个对 ArcGIS 官网限速，一个直接屏蔽了该网站，为了调试程序，我们小组开热点不知道花了多少流量...
 
 - 添加 Echarts 组件
 
