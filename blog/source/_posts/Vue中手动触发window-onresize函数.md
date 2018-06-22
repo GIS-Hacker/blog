@@ -4,7 +4,6 @@ date: 2018-05-19 22:47:25
 categories: 软件开发
 tags: [Vue]
 ---
-<p align="center" style="margin:0;"><img src="https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/others/05.png" width="30%" height="30%"></p>
 平时在写网页的时候，经常会遇到需要手动触发 window.onresize() 函数的情况，这里记录一下在 Vue.js 中如何手动触发这个函数。
 
 ``` JavaScript
