@@ -7,7 +7,7 @@ toc: true
 ---
 <img src="https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/others/02.png" width="40%" height="40%">
 相比 Web 前端，我个人更偏爱于开发类 Wpf 的桌面端软件，直到我遇见了 Electron。<br/>
-前端时间看到一篇推送，题目好像是《2018 年最值得关注的 JavaScript 发展趋势》，文章中提到了利用 Js 进行桌面端软件的开发，是的，使用的工具就是 Electron。但由于那之后一段时间一直忙于各种事情，也就只是枯燥地看完了它的官方文档，并没有什么机会深入地学习，不过令人欣慰的是最近学院举办了编程比赛，其中应用题的题目为开发一个 GIS 可视化系统，要求实现 Web 端、桌面端和移动端。由于种种原因，我不能以参赛选手的身份直接参加本次比赛，于是便"单纯地指导"了一个小组参加这次比赛，过程很艰辛，但最后很幸运地获得了一等奖，没错，都是 Electron 的功劳（当然还有 Vue 的功劳）。<br/>
+前端时间看到一篇推送，题目好像是《2018 年最值得关注的 JavaScript 发展趋势》，文章中提到了利用 Js 进行桌面端软件的开发，是的，使用的工具就是 Electron。但由于那之后一段时间一直忙于各种事情，也就只是枯燥地看完了它的官方文档，并没有什么机会深入地学习，不过令人欣慰的是最近学院举办了编程比赛，其中应用题的题目为开发一个 GIS 可视化系统，要求实现 Web 端、桌面端和移动端。<br/>
 在这个比赛中，我们网页端的框架使用 Webpack + Vue 搭建，使用 Element-ui 作为 UI 库，使用 ArcGIS Api for JavaScript、Echarts 进行数据可视化。桌面端是在 Web 端使用的工具的基础上利用 Electron 进行开发，也就是说，桌面端使用的工具主要是：Electron + Webpack + Vue + Element-ui + ArcGIS Api for JavaScript + Echarts。至于移动端，我们只是在 Web 端的基础上简单地使用了 PhoneGap + Android SDK + Eclipse 将最终生成的静态网页打包成移动端安装包。服务器使用的是阿里的 Ubuntu 云服务器，后台采用 Django 搭建，数据库使用的 PostgreSQL。数据来源是某个网站上全国 338 个地级市近 4 年的空气污染数据。
 
 ---
