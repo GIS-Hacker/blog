@@ -52,13 +52,35 @@ git push origin develop
 
 #### Rebase 命令
 
-Rebase 命令和它的字面意思一样，会改变该分支的`基`，它会将该分支的`基`变为另一个分支的最新的提交，`基`是一个分支在另一个分支中分叉后的的第一个提交。rebase 命令不会像 merge 命令那样产生合并提交，它会形成一个完美的线性历史。例如，在 `feature-1` 的开发过程中需要将 `develop` 合并，但不希望合并提交的产生，便可以使用 rebase 命令：
+Rebase 命令和它的字面意思一样，会改变该分支的`基`，它会将该分支的`基`变为另一个分支的最新的提交，`基`是一个分支在另一个分支中分叉后的的第一个提交。rebase 命令不会像 merge 命令那样产生合并提交，它会通过移动一个分支在另一个分支上分叉后的所有提交，形成一个完美的线性历史。例如，在 `feature-1` 的开发过程中需要将 `develop` 合并，但不希望合并提交的产生，便可以使用 rebase 命令：
 ```bash
 # 如果不在 feature-1 分支，切换到 feature-1 分支
-git checkout develop
+git checkout feature-1
 # 合并(rebase) develop 分支
 git rebase develop
 ```
+
+如果 `feature` 分支的提交太乱(比如有很多 *Fix bug*)，可以使用交互式 rebase 命令对 `feature` 分支的提交进行重构：
+```bash
+# 如果不在 feature-1 分支，切换到 feature-1 分支
+git checkout feature-1
+# 交互式合并(rebase) develop 分支
+git rebase -i develop
+```
+使用 `-i` 参数可以启动交互式的 rebase，它会打开一个文本编辑器，显示所有被移动的提交:
+```bash
+pick 34b6aca 这是feature分支的第一次提交
+pick 2bb57ac 修复第一次提交的Bug
+pick 233dc11 添加一个新功能
+```
+我们可以对这段代码进行编辑：
+```bash
+pick 34b6aca 添加一个新功能
+fixup 2bb57ac 修复第一次提交的Bug
+pick 233dc11 添加另一个新功能
+```
+这样在最终形成的 `feature` 分支中便不会存在 `2bb57ac` 这次提交了，而且提交的信息也得到了更正
+
 拉取并合并远程分支时使用 rebase 命令可以避免可能产生的合并提交：
 ```bash
 # 采用 rebase 命令拉取并合并远程分支
@@ -68,13 +90,21 @@ git pull origin develop --rebase
 
 #### 合并提交的产生
 
-合并提交(merge commit)可以将一个分支上的多个提交合并到其他分支，并产生一个合并提交。如果两个分支没有出现分叉(即commit较多的分支包含commit较少的分支的所有commit)，这两个分支的合并是不会产生合并提交的。如果出现了分叉，这两个分支的合并(merge)一定会产生合并提交，想要避免产生合并提交，可以使用 rebase 命令。
+合并提交(merge commit)可以将一个分支上的多个提交整合为一个，然后合并到另一个分支。如果两个分支没有出现分叉(即commit较多的分支包含commit较少的分支的所有commit)，这两个分支的合并是不会产生合并提交的。如果出现了分叉，这两个分支的合并(merge)一定会产生合并提交，想要避免产生合并提交，可以使用 rebase 命令。
 
 ### 合并准则
 
-#### 以 develop 分支为中心
+#### 不能反向合并
 
-在开发过程中应当以 `develop` 分支为中心，除了 `master` 分支，如果要将 `develop` 合并到其他分支，只能使用 `git rebase` 将 `develop` 的最新提交作为该分支的`基`，这样可以避免毫无意义的合并提交。(具体的命令请查看[Rebase 命令](#Rebase 命令))
+从上文我们可以看出，git workflow 中的五个分支是由一定地服务关系的，其服务关系如下：
+- `feature` -> `develop`
+- `release` -> `develop` & `master`
+- `develop` -> `master`
+- `hotfix` -> `master`
+
+在团队协作时，也会有一定地服务关系，一般是非中心仓库的分支为中心仓库的分支服务。
+
+这里提到的**不能反向合并**即不能把被服务分支合并(merge)到服务分支(例如不能将 `develop` 合并到 `feature`，只能将 `feature` 合并到 `develop`)。当然，如果在开发过程中一定要反向合并，应当使用 rebase 合并。
 
 #### 采用策略合并
 
