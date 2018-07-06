@@ -29,7 +29,7 @@ Git workflow 分为五个分支，包括 `master`、`develop`、`release`、`hot
 - `feature` 用于新功能的开发，可以有多个。本分支应当从 `develop` 分支检出，功能开发完成后合并(merge)到 `develop`。
 >在 `release` 和 `feature` 两个分支的开发过程中，如果 `develop` 分支有更新，可以选择不合并 `develop`，如果一定要合并。应当使用 `git rebase` 进行合并，将 `feature` 的`基`和 `develop` 的最新提交保持一致。(具体的命令请查看[Rebase 命令](#Rebase 命令))
 
-- `hotfix` 用于在版本发布之后的紧急 Bug 修复。本分支应当从 `master` 分支检出，在 Bug 修复之后直接合并(merge)到 `master`。
+- `hotfix` 用于在版本发布之后的紧急 Bug 修复。本分支应当从 `master` 分支检出，在 Bug 修复之后直接合并(merge)到 `master` 和 `develop`。
 >`hotfix` 分支和其他两个短期分支类似，如果 `master` 分支在 `hotfix` 的开发过程中有新的提交，而且需要合并的话，应当使用 `git base`。(具体的命令请查看[Rebase 命令](#Rebase 命令))
 
 ### 合并命令
@@ -100,11 +100,11 @@ git pull origin develop --rebase
 - `feature` -> `develop`
 - `release` -> `develop` & `master`
 - `develop` -> `master`
-- `hotfix` -> `master`
+- `hotfix` -> `develop` & `master`
 
 在团队协作时，也会有一定地服务关系，一般是非中心仓库的分支为中心仓库的分支服务。
 
-这里提到的**不能反向合并**即不能把被服务分支合并(merge)到服务分支(例如不能将 `develop` 合并到 `feature`，只能将 `feature` 合并到 `develop`)。当然，如果在开发过程中一定要反向合并，应当使用 rebase 合并。
+这里提到的**不能反向合并**即不能把被服务分支合并(merge)到服务分支(例如不能将 `develop` 合并到 `feature`)。当然，如果在开发过程中一定要反向合并，应当使用 rebase 合并。
 
 #### 采用策略合并
 
