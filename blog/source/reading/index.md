@@ -11,6 +11,7 @@ comments: true
 ### 技术相关
 
 {% readStream %}
+{% readItems https://book.douban.com/subject/27112874/ https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/douban_pics/books/Kubernetes-权威指南.jpg Kubernetes权威指南 2018-07 %}
 {% readItems https://book.douban.com/subject/26894736/ https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/douban_pics/books/Docker容器和容器云-第2版.jpg Docker容器和容器云-第2版 2018-03 %}
 {% readItems https://book.douban.com/subject/3260810/ https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/douban_pics/books/GIS-for-Web应用开发之道.jpg GIS-for-Web应用开发之道 2017-08 %}
 {% readItems https://book.douban.com/subject/3287474/ https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/douban_pics/books/插件式GIS应用框架的设计与实现.jpg 插件式GIS应用框架的设计与实现 2017-10 %}
