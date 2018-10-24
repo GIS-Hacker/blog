@@ -16,56 +16,57 @@ reward: true
 本文用于记录在本项目中利用 Travis CI 持续集成和部署的配置代码。
 <!-- more -->
 
-### .travis-ci.yml 源码
-
->注意：请在 Travis CI 的网站中设置`$GH_TOKEN`环境变量并设置为不可见(默认便是不可见)，该环境变量是 GitHub 的`Personal access token`。
+### 以 node.js 为主环境的配置方法
 
 ```yml
-sudo: true
+sudo: required
 
 language: node_js
-node_js:
-  - "8"
+node_js: stable
 
 cache:
   directories:
-  - node_modules
+    - node_modules
+    - cordova/node_modules
 
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
     packages:
-    - g++-4.8
-    - openjdk-7-jdk
-    - lib32stdc++6
-    - lib32z1
+      - g++-4.8
+      - openjdk-7-jdk
+      - lib32stdc++6
+      - lib32z1
 env:
   CXX=g++-4.8
 
+install:
+  - yarn
+  - yarn --cwd cordova
+
 before_script:
-  - wget -q https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
-  - tar -xf android-sdk_r24.4.1-linux.tgz
-  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter platform-tools
-  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter build-tools-26.0.2
-  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter android-27
-  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-android-support
-  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-android-m2repository
-  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-google-m2repository
-  - export ANDROID_HOME=$PWD/android-sdk-linux
+  # 添加 android 环境
+  - mkdir android-sdk
+  - wget -P android-sdk -q https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
+  - tar -xf ./android-sdk/android-sdk_r24.4.1-linux.tgz -C ./android-sdk
+  - echo y | ./android-sdk/android-sdk-linux/tools/android update sdk --no-ui --all --filter platform-tools
+  - echo y | ./android-sdk/android-sdk-linux/tools/android update sdk --no-ui --all --filter build-tools-26.0.2
+  - echo y | ./android-sdk/android-sdk-linux/tools/android update sdk --no-ui --all --filter android-27
+  - echo y | ./android-sdk/android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-android-support
+  - echo y | ./android-sdk/android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-android-m2repository
+  - echo y | ./android-sdk/android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-google-m2repository
+  - export ANDROID_HOME=$PWD/android-sdk/android-sdk-linux
   - export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/26.0.2
 
 script:
-  - export TRAVIS_TAG=v1.0.0
+  - yarn build
+  - cd cordova/
   - npm install -g cordova
-  - npm install
-  - rm -rf www
-  - git clone --depth=1 -b gh-pages https://github.com/CS-Tao/whu-library-seat-mobile.git www
   - cordova platform add android
-  - cordova prepare
-  - cordova build
-  - mv ./platforms/android/app/build/outputs/apk/debug/app-debug.apk whu-library-seat-mobile_${TRAVIS_TAG}.apk
-  # - cordova build android --release -- --keystore="release-key.keystore" --alias=whu-library-seat-mobile --storePassword=$STORE_PASSWORD --password=$PASSWORD
+  - cordova prepare android
+  - cordova build android --release -- --keystore="release-key.keystore" --alias=whu-library-seat-mobile --storePassword=${STORE_PASSWORD} --password=${PASSWORD}
+  - mv ./platforms/android/app/build/outputs/apk/release/app-release.apk whu-library-seat-mobile_${TRAVIS_TAG}.apk
   # - zipalign -v 4 ./platforms/android/app/build/outputs/apk/release/app-release.apk whu-library-seat-mobile_${TRAVIS_TAG}.apk
 
 deploy:
@@ -78,10 +79,73 @@ deploy:
   on:
     tags: true
 ```
->代码中的`git clone`用于下载网站的源代码，也可以直接将网站提前放入`www`文件夹中。注释部分用于生成签名版本的`Apk`，需要提前生成`release-key.keystore`文件放在项目中(生成该文件的命令如下)。上文中的`$STORE_PASSWORD`和`$PASSWORD`环境变量为下面这条命令需要输入的两个密码，也应该添加到 Travis CI 的网站中，并设置为不可见。
+源文件链接：[.travis.yml](https://github.com/CS-Tao/whu-library-seat-mobile/blob/3c67e5889c7fd1d3a05db23928cbfb0f17a20fc6/.travis.yml)
+
+### 以 android 为主环境的配置方法
+
+```yml
+sudo: required
+
+language: android
+
+android:
+  components:
+    - tools
+    - build-tools-26.0.2
+    - android-27
+    - extra-android-m2repository
+    - extra-android-support
+    - extra-google-m2repository
+  licenses:
+    - 'android-sdk-license.*'
+
+cache:
+  directories:
+    - node_modules
+    - cordova/node_modules
+
+before_install:
+  # 添加 node.js 环境
+  - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  - sudo apt-get install nodejs
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - source ~/.bashrc
+  - node -v && npm -v && yarn -v
+
+install:
+  - yarn
+  - yarn --cwd cordova
+
+script:
+  - yarn build
+  - cd cordova/
+  - sudo npm install -g cordova
+  - cordova -v
+  - cordova platform add android
+  - cordova prepare android
+  - cordova build android --release -- --keystore="release-key.keystore" --alias=whu-library-seat-mobile --storePassword=${STORE_PASSWORD} --password=${PASSWORD}
+  - mv ./platforms/android/app/build/outputs/apk/release/app-release.apk whu-library-seat-mobile_${TRAVIS_TAG}.apk
+  # - zipalign -v 4 ./platforms/android/app/build/outputs/apk/release/app-release.apk whu-library-seat-mobile_${TRAVIS_TAG}.apk
+
+deploy:
+  provider: releases
+  skip-cleanup: true
+  overwrite: true
+  api_key: $GH_TOKEN
+  file: 
+    - "whu-library-seat-mobile_${TRAVIS_TAG}.apk"
+  on:
+    tags: true
+```
+源文件链接：[.travis.yml](https://github.com/CS-Tao/whu-library-seat-mobile/blob/c55bf899c486b527ca621a21ed150b14019eb6f5/.travis.yml)
+
+### 说明
+
+> 请在 Travis CI 的网站中设置`$GH_TOKEN`环境变量并设置为不可见(默认便是不可见)，该环境变量是 GitHub 的`Personal access token`。
+
+> 代码中的`yarn build`命令用于将生产版本的网页放入 cordova 项目的`www`文件夹中。代码中的`${STORE_PASSWORD}`和`${PASSWORD}`环境变量为下面这条命令需要输入的两个密码，也应该添加到 Travis CI 的网站中，并设置为不可见。
 
 ```bash
-# 生成 release-key.keystore，别名为 whu-library-seat-mobile
+# 在 cordova 项目的根目录中生成 release-key.keystore 文件
 keytool -genkey -v -keystore release-key.keystore -alias whu-library-seat-mobile -keyalg RSA -keysize 2048 -validity 10000
 ```
-附源文件链接：[https://github.com/CS-Tao/whu-library-seat-mobile/blob/master/.travis.yml](https://github.com/CS-Tao/whu-library-seat-mobile/blob/master/.travis.yml)
