@@ -18,6 +18,8 @@ reward: true
 
 ### 以 node.js 为主环境的配置方法
 
+本方法的构建和部署耗时 580s 左右
+
 ```yml
 sudo: required
 
@@ -82,6 +84,8 @@ deploy:
 源文件链接：[.travis.yml](https://github.com/CS-Tao/whu-library-seat-mobile/blob/3c67e5889c7fd1d3a05db23928cbfb0f17a20fc6/.travis.yml)
 
 ### 以 android 为主环境的配置方法
+
+本方法的构建和部署耗时 450s 左右
 
 ```yml
 sudo: required
