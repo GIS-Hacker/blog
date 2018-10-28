@@ -18,7 +18,7 @@ reward: true
 
 ### 以 node.js 为主环境的配置方法
 
-本方法的构建和部署耗时 580s 左右
+本方法的构建和部署耗时 580s 左右，构建日志：[https://travis-ci.com/CS-Tao/whu-library-seat-mobile/builds/88561677](https://travis-ci.com/CS-Tao/whu-library-seat-mobile/builds/88561677)
 
 ```yml
 sudo: required
@@ -85,7 +85,7 @@ deploy:
 
 ### 以 android 为主环境的配置方法
 
-本方法的构建和部署耗时 450s 左右
+本方法的构建和部署耗时 450s 左右，构建日志：[https://travis-ci.com/CS-Tao/whu-library-seat-mobile/builds/89426551](https://travis-ci.com/CS-Tao/whu-library-seat-mobile/builds/89426551)
 
 ```yml
 sudo: required
