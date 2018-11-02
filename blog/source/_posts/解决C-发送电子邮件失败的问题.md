@@ -4,22 +4,20 @@ date: 2017-10-18 08:21:15
 categories: 技术相关
 tags: [C#]
 ---
-** 解决C#-WPF桌面软件发送电子邮件失败的问题** <Excerpt in index | 首页摘要>
-    C#发送邮件的方法在网上搜一下可以找到很多，几个小时过去了还是没能实现，对比了很多人写的博客，笔者最终找到了问题所在，并在此记录。
+本文记录了在 C# 环境下，如何利用 SMTP 邮箱服务发送邮件，以 QQ 邮箱为例
 <!-- more -->
 
 # 实现过程
 
-- 配置App.Config文件
+- 配置 App.Config 文件
     - 在项目中添加`System.Configuration`程序集的引用
-    - 在App.Config文件中添加键值，如下（只需要关注appSettings标签内的内容）
+    - 在 App.Config 文件中添加键值，如下（只需要关注 appSettings 标签内的内容）
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <configSections>
     <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=*************" requirePermission="false" />
-    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
   </configSections>
   <startup>
     <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
@@ -37,7 +35,7 @@ tags: [C#]
 </configuration>
 ```
 
-- EmailHelper.cs文件内容
+- EmailHelper.cs 文件内容
 
 ```C#
 using System;
@@ -88,9 +86,9 @@ namespace View_Spot_of_City.UIControls.Helper
 
 # 注意
 
-若使用QQ邮箱，输入密码为许可码，需要在QQ邮箱中打开SMTP服务
+若使用 QQ 邮箱，输入密码为许可码，需要在 QQ 邮箱中打开 SMTP 服务
 
-- 打开QQ邮箱网页版
-- 点击左上角“设置”，并在导航栏中点击账户标签
-- 开启SMTP服务并获得许可码
-    ![开启SMTP服务](https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/WpfSendMail.png)
+- 打开 QQ 邮箱网页版
+- 点击左上角"设置"，并在导航栏中点击账户标签
+- 开启 SMTP 服务并获得许可码
+    ![开启 SMTP 服务](https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/WpfSendMail.png)

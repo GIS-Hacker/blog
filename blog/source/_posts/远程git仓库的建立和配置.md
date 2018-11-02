@@ -4,35 +4,33 @@ date: 2017-12-11 17:11:21
 categories: 技术相关
 tags: [git, gitweb]
 ---
-** 远程git仓库的建立和配置** <Excerpt in index | 首页摘要>
-本篇博文主要介绍如何建立远程git仓库以及如何在gitweb页面中显示仓库的描述信息，以Ubuntu 16.04 LTS操作系统为例。
+本文主要介绍如何建立远程 git 仓库以及如何在 gitweb 页面中显示仓库的描述信息，以 Ubuntu 16.04 LTS 操作系统为例。
 <!-- more -->
-<The rest of contents | 余下全文>
 
-# 安装并配置gitweb
+# 安装并配置 gitweb
 
-参考[基于Apache服务器的gitweb安装和配置](http://blog.cs-tao.cc/2017/10/19/gitweb%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/)
+参考[基于 Apache 服务器的 gitweb 安装和配置](http://blog.cs-tao.cc/2017/10/19/gitweb%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/)
 
 # 新建文件夹
 
-为了能在gitweb上查看仓库的信息，建议在gitweb的仓库根目录下新建文件夹（仓库根目录在gitweb的配置文件"/etc/gitweb.conf"中由"$projectroot"变量指定）
+为了能在 gitweb 上查看仓库的信息，建议在 gitweb 的仓库根目录下新建文件夹（仓库根目录在 gitweb 的配置文件"/etc/gitweb.conf"中由"$projectroot"变量指定）
 
 ~~~bash
 mkdir Test.git
 ~~~
 
-git远程库目录建议带上.git后缀。
+git 远程库目录建议带上 .git 后缀。
 
-# 更改文件夹权限并切换到用于远程ssh连接的用户
+# 更改文件夹权限并切换到用于远程 ssh 连接的用户
 
-因为我们用于连接私有git仓库的方法是ssh远程连接，我们以有远程ssh登录权限的用户'CSTao'为例。
+因为我们用于连接私有 git 仓库的方法是 ssh 远程连接，我们以有远程 ssh 登录权限的用户 'CSTao' 为例。
 
 ~~~bash
 chown -R CSTao:CSTao Test.git
 su CSTao
 ~~~
 
->注意：本步骤和第一步的顺序可以交换，那么便可以不使用chown命令更改文件夹权限，只切换用户即可。笔者这样做的原因是我新建的文件夹所在目录的权限不属于用户CSTao，以CSTao用户新建文件夹会出现权限不足的警告。
+> 注意：本步骤和第一步的顺序可以交换，那么便可以不使用 chown 命令更改文件夹权限，只切换用户即可。这样做的原因是我新建的文件夹所在目录的权限不属于用户 CSTao，以 CSTao 用户新建文件夹会出现权限不足的警告。
 
 # 建立仓库
 
@@ -40,7 +38,7 @@ su CSTao
  cd Test.git
  git init --bare
  ~~~
- 和建立本地仓库的命令不一样的是，建立远程仓库其实建立了一个裸仓库，也就是不含文件信息，只有git的提交记录。
+ 和建立本地仓库的命令不一样的是，建立远程仓库其实建立了一个裸仓库，也就是不含文件信息，只有 git 的提交记录。
 
 # 配置描述信息
 
@@ -73,4 +71,4 @@ su CSTao
 
 # 添加文件、提交更改、推送到远程
 
-这部分内容为git的基本操作，不再详述
+这部分内容为 git 的基本操作，不再赘述

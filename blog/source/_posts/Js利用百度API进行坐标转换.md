@@ -4,10 +4,8 @@ date: 2017-09-04 21:10:59
 categories: 技术相关
 tags: [JacaScript]
 ---
-** 百度地图API for JavaScript的使用 **<Excerpt in index | 首页摘要>
-在Js中利用百度地图API对地理坐标系和投影坐标系（墨卡托）进行互转
+在 JavaScript 中利用百度地图API对地理坐标系和投影坐标系(墨卡托)进行互转
 <!-- more -->
-<The rest of contents | 余下全文>
 
 # 导入js文件
 

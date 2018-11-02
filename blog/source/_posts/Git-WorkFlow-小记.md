@@ -27,10 +27,9 @@ Git workflow 分为五个分支，包括 `master`、`develop`、`release`、`hot
 短期分支可以同时存在多个(当然命名不能重复)，每个分支使用完应当被删除掉，包括`release`、`hotfix` 和 `feature`。
 - `release` 用于在正式发布之前的预发布版本，在这个版本中的提交都应当是修复 Bug，不能在本分支上开发新的功能。本分支应当从 `develop` 检出，Bug 修复之后合并(merge)到 `develop` 和 `master`。
 - `feature` 用于新功能的开发，可以有多个。本分支应当从 `develop` 分支检出，功能开发完成后合并(merge)到 `develop`。
->在 `release` 和 `feature` 两个分支的开发过程中，如果 `develop` 分支有更新，可以选择不合并 `develop`，如果一定要合并。应当使用 `git rebase` 进行合并，将 `feature` 的`基`和 `develop` 的最新提交保持一致。(具体的命令请查看[Rebase 命令](#Rebase 命令))
+> 在 `release` 和 `feature` 两个分支的开发过程中，如果 `develop` 分支有更新，可以选择不合并 `develop`，如果一定要合并。应当使用 `git rebase` 进行合并，即将 `feature` 的`基`和 `develop` 的最新提交保持一致。
 
 - `hotfix` 用于在版本发布之后的紧急 Bug 修复。本分支应当从 `master` 分支检出，在 Bug 修复之后直接合并(merge)到 `master` 和 `develop`。
->`hotfix` 分支和其他两个短期分支类似，如果 `master` 分支在 `hotfix` 的开发过程中有新的提交，而且需要合并的话，应当使用 `git base`。(具体的命令请查看[Rebase 命令](#Rebase 命令))
 
 ### 合并命令
 
@@ -69,15 +68,15 @@ git rebase -i develop
 ```
 使用 `-i` 参数可以启动交互式的 rebase，它会打开一个文本编辑器，显示所有被移动的提交:
 ```bash
-pick 34b6aca 这是feature分支的第一次提交
-pick 2bb57ac 修复第一次提交的Bug
+pick 34b6aca 这是 feature 分支的第一次提交
+pick 2bb57ac 修复第一次提交的 Bug
 pick 233dc11 添加一个新功能
 ```
 我们可以对这段代码进行编辑：
 ```bash
-pick 34b6aca 这是feature分支的第一次提交
-fixup 2bb57ac 修复第一次提交的Bug
-pick 233dc11 添加另一个新功能
+pick 34b6aca 这是 feature 分支的第一次提交
+fixup 2bb57ac 修复第一次提交的 Bug
+pick 233dc11 添加一个新功能
 ```
 这样在最终形成的 `feature` 分支中便不会显示 `2bb57ac` 这次提交了(和之前的提交合并为一个提交)。当我们打开交互式 rebase 的时候，在注释里还可以看到其它功能的说明，利用这些功能我们可以随意地更改提交历史
 
@@ -90,7 +89,7 @@ git pull origin develop --rebase
 
 #### 合并提交的产生
 
-合并提交(merge commit)可以将一个分支上的多个提交整合为一个，然后合并到另一个分支。如果两个分支没有出现分叉(即commit较多的分支包含commit较少的分支的所有commit)，这两个分支的合并是不会产生合并提交的。如果出现了分叉，这两个分支的合并(merge)一定会产生合并提交，想要避免产生合并提交，可以使用 rebase 命令。
+合并提交(merge commit)可以将一个分支上的多个提交整合为一个，然后合并到另一个分支。如果两个分支没有出现分叉(即commit较多的分支包含commit较少的分支的所有commit)，这两个分支的合并是不会产生合并提交的。如果出现了分叉，这两个分支的合并(merge)一定会产生合并提交，应当使用 rebase 命令避免合并提交的产生。
 
 ### 合并准则
 
