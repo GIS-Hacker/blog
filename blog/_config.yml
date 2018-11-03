@@ -4,8 +4,6 @@
 
 # Site
 title: CS-Tao · Blog
-#subtitle: 千里之行 始于足下
-#subtitle: 路漫漫其修远兮
 subtitle: 这是一个不能停留太久的世界
 description: 记录世界，记录生活。
 author: CS-Tao
@@ -136,9 +134,3 @@ image_stream:
   jquery: false
   jquery_lazyload: //cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js
   img_placeholder: //ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif
-
-baidu_url_submit:
-  count: 3 ## 提交最新的一个链接
-  host: https://home.cs-tao.cc/ ## 在百度站长平台中注册的域名
-  token: 8dzyAVZKiZ7Udwp2
-  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里

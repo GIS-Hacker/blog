@@ -6,9 +6,8 @@
     "version": "3.7.1"
   },
   "dependencies": {
-    "gitment": "0.0.3",
+    "gitment": "GIS-Hacker/gitment",
     "hexo": "^3.7.1",
-    "hexo-baidu-url-submit": "0.0.5",
     "hexo-deployer-git": "^0.3.1",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-baidu-sitemap": "^0.1.2",
