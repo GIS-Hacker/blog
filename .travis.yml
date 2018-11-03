@@ -10,6 +10,7 @@ install:
   - yarn --cwd blog
 
 script:
+  - npm install -g hexo
   - hexo --cwd blog g
 
 deploy:
