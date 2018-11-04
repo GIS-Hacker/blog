@@ -1,7 +1,7 @@
 ---
 title: Vue 中手动触发 window.onresize() 函数
 date: 2018-05-19 22:47:25
-categories: 软件开发
+categories: 技术相关
 tags: [Vue]
 ---
 

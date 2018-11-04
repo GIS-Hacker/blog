@@ -1,7 +1,7 @@
 ---
 title: Travis CI 自动化部署 Cordova 工程
 date: 2018-10-10 22:50:34
-categories: 软件开发
+categories: 技术相关
 tags: [travis-ci, cordava, android]
 reward: true
 ---
