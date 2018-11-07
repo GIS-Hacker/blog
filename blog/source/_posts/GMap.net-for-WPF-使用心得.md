@@ -4,6 +4,8 @@ date: 2017-08-19 16:42:23
 categories: 软件开发
 tags: [Wpf, GMap.net]
 ---
+<img src="https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/others/gmap.png" width="20%" height="20%">
+
 本文记录了利用 GMap.net for WPF 绘制点线面的方式和在项目中遇到的对未指定长宽的要素与其他要素间相对定位的方式
 <!-- more -->
 

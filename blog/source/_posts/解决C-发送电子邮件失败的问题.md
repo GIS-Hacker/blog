@@ -4,6 +4,8 @@ date: 2017-10-18 08:21:15
 categories: 技术相关
 tags: [C#]
 ---
+<img src="https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/others/mail.png" width="20%" height="20%">
+
 本文记录了在 C# 环境下，如何利用 SMTP 邮箱服务发送邮件，以 QQ 邮箱为例
 <!-- more -->
 
