@@ -98,6 +98,7 @@ id: 'window.location.pathname' #页面 ID
 gitment_oauth:
   client_id: 'afb484520f02435d9ef4'           #client ID
   client_secret: 'cec4ead127d888767428def9dd8d5b048673ac5b'       #client secret
+gitment_proxy: https://gitment.cs-tao.cc
 
 #6、来必力
 #livere: MTAyMC8zMzI4OS85ODQ2

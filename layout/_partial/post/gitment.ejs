@@ -10,6 +10,7 @@ var gitment = new Gitment({
     client_id: '<%=theme.gitment_oauth.client_id%>',
     client_secret: '<%=theme.gitment_oauth.client_secret%>',
   },
+  proxy: '<%=theme.gitment_proxy%>'
 })
 gitment.render('gitment-ctn')
 </script>
