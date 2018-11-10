@@ -1,6 +1,3 @@
-[submodule "photo-album"]
-	path = photo-album
-	url = https://github.com/CS-Tao/blog.git
 [submodule "blog/themes/hexo-theme-yilia"]
 	path = blog/themes/hexo-theme-yilia
 	url = https://github.com/CS-Tao/blog.git
