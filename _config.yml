@@ -2,9 +2,8 @@
 
 menu:
   主页: /
-  归档: /collection/
-  分类: /categories/
-  留言: /messages/
+  # 相册: https://gallery.cs-tao.cc/
+  关于我: /about/
 
 # SubNav
 subnav:
@@ -46,7 +45,7 @@ open_in_new: true
 # 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
 reward_type: 1
 # 打赏wording
-reward_wording: '纯属娱乐'
+reward_wording: '欢迎打赏，金额随意'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
 alipay: /blog/img/alipayimg.jpg
 # 微信二维码图片地址
@@ -130,7 +129,7 @@ smart_menu:
   friends: '友情链接'
   aboutme: false
 
-aboutme: <p align="center">大三学生<br><br>现就读与武汉大学</p>
+aboutme: <p align="center">大三学生<br><br>现在武汉大学就读</p>
 
 friends:
   Chaogui Kang: "http://urbancolab.org/"
