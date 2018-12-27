@@ -7,7 +7,7 @@ toc: true
 ---
 <img src="https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/others/22.png" width="45%" height="45%">
 什么是 workflow？workflow 就是工作流，即工作的流程，是一个软件过程模型的体现。因为 git 不同分支的交叠，便构成了具有 git 特色的工作流。一个良好的工作流可以让我们的项目历史清晰明了，有利于更好的代码管理。利用 git 的分支管理功能，可以将软件生命周期的各个过程归并到各个分支上，实现软件开发过程中各个操作的隔离。
-在项目开发过程中，工作流是一个准则，由开发者自己定义，并自行遵守。本篇文章主要用来督促自己养成一个良好的开发习惯。
+在项目开发过程中，工作流是一个准则，由开发者自己定义，并自行遵守。本篇文章主要用于督促自己养成一个良好的开发习惯。
 <!-- more -->
 ### 各个分支的使用
 
@@ -78,7 +78,7 @@ pick 34b6aca 这是 feature 分支的第一次提交
 fixup 2bb57ac 修复第一次提交的 Bug
 pick 233dc11 添加一个新功能
 ```
-这样在最终形成的 `feature` 分支中便不会显示 `2bb57ac` 这次提交了(和之前的提交合并为一个提交)。当我们打开交互式 rebase 的时候，在注释里还可以看到其它功能的说明，利用这些功能我们可以随意地更改提交历史
+这样在最终形成的 `feature` 分支中便不会显示 `2bb57ac` 这次提交了(和之前的提交合并为一个新的提交)。当我们打开交互式 rebase 的时候，在注释里还可以看到其它功能的说明，利用这些功能我们可以随意地更改提交历史
 
 拉取并合并远程分支时使用 rebase 命令可以避免可能产生的合并提交：
 ```bash
@@ -89,25 +89,25 @@ git pull origin develop --rebase
 
 #### 合并提交的产生
 
-合并提交(merge commit)可以将一个分支上的多个提交整合为一个，然后合并到另一个分支。如果两个分支没有出现分叉(即commit较多的分支包含commit较少的分支的所有commit)，这两个分支的合并是不会产生合并提交的。如果出现了分叉，这两个分支的合并(merge)一定会产生合并提交，应当使用 rebase 命令避免合并提交的产生。
+合并提交(merge commit)可以将一个分支上的多个提交整合为一个，然后合并到另一个分支。如果两个分支没有出现分叉，这两个分支的合并是不会产生合并提交的。如果出现了分叉，它们的的合并(merge)一定会产生合并提交。
 
 ### 合并准则
 
 #### 不能反向合并
 
-从上文我们可以看出，git workflow 中的五个分支是由一定地服务关系的，其服务关系如下：
+从上文我们可以看出，git workflow 中的五个分支是有一定服务关系的，其服务关系如下：
 - `feature` -> `develop`
 - `release` -> `develop` & `master`
 - `develop` -> `master`
 - `hotfix` -> `develop` & `master`
 
-在团队协作时，也会有一定地服务关系，一般是非中心仓库的分支为中心仓库的分支服务。
+在团队协作时，会有一定的服务关系，一般是非中心仓库的分支为中心仓库的分支服务。
 
 这里提到的**不能反向合并**即不能把被服务分支合并(merge)到服务分支(例如不能将 `develop` 合并到 `feature`)。当然，如果在开发过程中一定要反向合并，应当使用 rebase 合并。
 
 #### 采用策略合并
 
-在[Merge 命令](#Merge 命令)中我们使用了 `--no-ff` 参数，这个会让 git 的合并(merge)操作不采用 `Fast-Forward` 的合并方式，而是采用策略合并，这样的合并可以保留分支间的合并历史，如下图：
+在[Merge 命令](#Merge 命令)中我们使用了 `--no-ff` 参数，这会让 git 的合并(merge)操作不采用 `Fast-Forward` 的合并方式，而是采用策略合并，这样的合并可以保留分支间的合并历史，如下图：
 <img src="https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/others/20.png" width="65%" height="65%">
 
 #### 在 GitHub 上 Review
