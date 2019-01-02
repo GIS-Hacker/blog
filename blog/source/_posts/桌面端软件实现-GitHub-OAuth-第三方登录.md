@@ -20,7 +20,7 @@ GitHub 提供了针对网站的第三方登录策略，主要步骤如下：
 1. 注册一个 OAuth App，得到 App 的 **Client ID** 和 **Client Secret**，具体请查看 [Creating an OAuth App](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
 1. 利用浏览器访问 `https://github.com/login/oauth/authorize?client_id={Client_ID}&scope=user:email` (将 **Client_ID** 替换为上一步得到的 **Client ID**，**scope** 参数是你希望得到的用户信息的内容，具体请查看 [understanding-scopes-for-oauth-apps](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/))
 1. 当用户同意授权后，浏览器会重定向到我们到注册 App 时提供的回调地址，并在重定向链接中附带一个 **code** 参数。
-1. 后台利用 **code** 参数和第一步得到的 **Client Secret** 访问 `https://github.com/login/oauth/access_token?client_id=${Client_ID}&client_secret=${Client_Secret}&code=${code}` 便可得到一个 **access_token**
+1. 后台利用 **code** 参数和第一步得到的 **Client ID** 和 **Client Secret** 访问 `https://github.com/login/oauth/access_token?client_id=${Client_ID}&client_secret=${Client_Secret}&code=${code}` 便可得到一个 **access_token**
 1. 利用得到的 **access_token** 结合 GitHub Api 便可访问该用户的信息
 
 ### 桌面端软件授权的问题
@@ -29,7 +29,7 @@ GitHub 提供了针对网站的第三方登录策略，主要步骤如下：
 
 在网页应用中，后台通过 **code** 参数后可以得到 **access_token**，然后将 **access_token** 放到渲染好的网页中，发送到浏览器，浏览器将 **access_token** 保存到本地缓存，之后每次都访问网页资源都把本地缓存的 **access_token** 发送到后台，后台便能获得需要的用户信息，通过网页发送到浏览器。
 
-然而对于桌面端软件，软件可以自行打开浏览器访问认证链接，让用户确认是否授权，但得想个方法将后台获得的 **access_token** 发送到桌面端软件。其中最重要的让后台知道不同的浏览器对应的桌面端软件是哪一个，解决这个问题之后，才能把用户在不同浏览器中确认授权后得到的 **access_token** 发送到对应的桌面端，桌面端把它存到软件的配置文件中。第二个问题是如何把 **access_token** 发送到桌面端。
+然而对于桌面端软件，软件可以自行打开浏览器访问认证链接，让用户确认是否授权，但得想个方法将后台获得的 **access_token** 发送到桌面端软件。其中最重要的是让后台知道不同的浏览器对应的桌面端软件是哪一个，解决这个问题之后，才能把用户在不同浏览器中确认授权后得到的 **access_token** 发送到对应的桌面端，桌面端把它存到软件的配置文件中。第二个问题是如何把 **access_token** 发送到桌面端。
 
 ### 实现方法
 
@@ -86,7 +86,7 @@ GitHub 提供了针对网站的第三方登录策略，主要步骤如下：
 
   ![图片加载失败](https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/github/whu-library-seat/OAuth/5.1.png)
 
-1. 如果您还给本仓库点星，请到指定仓库点星以供管理员了解软件使用情况。桌面端进入：[whu-library-seat](https://github.com/CS-Tao/whu-library-seat)，移动端进入：[whu-library-seat-mobile](https://github.com/CS-Tao/whu-library-seat-mobile)
+1. 如果您还未给本仓库点星，请到指定仓库点星以供管理员了解软件使用情况。桌面端进入：[whu-library-seat](https://github.com/CS-Tao/whu-library-seat)，移动端进入：[whu-library-seat-mobile](https://github.com/CS-Tao/whu-library-seat-mobile)
 
   - 桌面端点击右上角的`Star`按钮，按钮如下图所示：
 
