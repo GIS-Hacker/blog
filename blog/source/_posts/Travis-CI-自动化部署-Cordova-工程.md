@@ -69,7 +69,6 @@ script:
   - cordova prepare android
   - cordova build android --release -- --keystore="release-key.keystore" --alias=whu-library-seat-mobile --storePassword=${STORE_PASSWORD} --password=${PASSWORD}
   - mv ./platforms/android/app/build/outputs/apk/release/app-release.apk whu-library-seat-mobile_${TRAVIS_TAG}.apk
-  # - zipalign -v 4 ./platforms/android/app/build/outputs/apk/release/app-release.apk whu-library-seat-mobile_${TRAVIS_TAG}.apk
 
 deploy:
   provider: releases
