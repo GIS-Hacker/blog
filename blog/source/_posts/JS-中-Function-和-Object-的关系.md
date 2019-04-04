@@ -7,7 +7,7 @@ reward: true
 ---
 <img src="https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/others/javascript.png" width="65%" height="65%">
 
-这段时间我一直在复习前端基础知识，遇到了下面这道面试题：
+这段时间在复习前端基础知识，遇到了下面这道面试题：
 ```js
 var F = function(){}
 var f = new F()
@@ -34,8 +34,13 @@ undefined
 那么代码中的`Function.prototype.b = function(){}`能有什么作用呢？不难发现：
 ```js
 console.log(F.b) // ƒ (){}
+// 甚至还有
+console.log(Object.b) // ƒ (){}
+console.log(Object.b === F.b) // true
 ```
-看起来 F 是 Function 的一个实例？的确是这样的，所有的函数都是通过 Function 的 new 出来的，这么说 Function 是 JavaScript 的一个很基础的工具咯？那它和另一个很基础的工具 Object 有什么关系呢？
+看起来 F 和 Object 都是 Function 的实例？的确是这样的，所有的函数都是由 Function 的原型构造出来的，这么说 Function 是 JavaScript 的一个很基础的工具咯？但 JavaScript 不是万物皆对象吗，那 Object 和 Function 到底是什么关系呢？
+
+> js 的世界很大，并不是只有对象
 
 我们可以做以下测试：
 ```js
