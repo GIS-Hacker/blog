@@ -1,6 +1,6 @@
 ---
 title: JS 中 Function 和 Object 的关系
-date: 2019-04-04 19:22:54
+date: 2019-04-04 21:55:45
 categories: 技术相关
 tags: [JacaScript]
 reward: true
@@ -35,7 +35,7 @@ undefined
 ```js
 console.log(F.b) // ƒ (){}
 ```
-看起来 F 是 Function 的一个实例？的确是这样的，所有的函数都是 Function 的实例，这么说 Function 是一个很基础的工具咯？那它和另一个基础的工具 Object 有什么关系呢？
+看起来 F 是 Function 的一个实例？的确是这样的，所有的函数都是通过 Function 的 new 出来的，这么说 Function 是 JavaScript 的一个很基础的工具咯？那它和另一个很基础的工具 Object 有什么关系呢？
 
 我们可以做以下测试：
 ```js
@@ -47,13 +47,13 @@ Object == Function // false
 ```
 完全懵了...
 
-为什么会出现这么怪异的结果，Object 和 Function 谁更底层一点？它们为什么会"互为实例"？
+为什么会出现这么怪异的结果，Object 和 Function 谁更底层一些？它们为什么会"互为实例"？
 
 通过对 JavaScript 各个概念出现先后顺序的分析，我得到了如下的一张图：
 
 ![Js_Function_Object.png](https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/others/Js_Function_Object.png)
 
-JavaScript 是我学过的最糟糕的语言...
+毫无疑问 JavaScript 是我学过的最糟糕的语言...
 
 首先解释一下这张图：
 1. 在 JavaScript 中，对象原型是最最基础的概念，通过对象原型得到了函数原型；
