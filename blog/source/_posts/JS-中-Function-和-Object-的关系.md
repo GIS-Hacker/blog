@@ -59,7 +59,7 @@ JavaScript 是我学过的最糟糕的语言...
 1. 得到 Object 和 Function 后，便可以将对象原型和函数原型分别挂载到 Object 和 Function 的 prototype 上了；
 1. 利用装备上 prototype 的 Object 和 Function，便可以实现 new 运算。道生一，一生二，二生三，三生万物...
 
-结合该图和 JavaScript 的继承规则，我们可以解释上面的结果：
+结合该图和 instanceof 的判断规则，我们可以解释上面的结果：
 ```js
 F instanceof Object // true, F.__proto__.__proto__ === '函数原型'.__proto__ === '对象原型' === Object.prototype
 F instanceof Function // true, F.__proto__ === '函数原型' === Function.prototype
