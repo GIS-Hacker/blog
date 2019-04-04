@@ -5,6 +5,8 @@ categories: 技术相关
 tags: [JacaScript]
 reward: true
 ---
+<img src="https://raw.githubusercontent.com/CS-Tao/github-content/master/contents/blog/image/others/javascript.png" width="65%" height="65%">
+
 这段时间我一直在复习前端基础知识，遇到了下面这道面试题：
 ```js
 var F = function(){}
