@@ -22,7 +22,7 @@ console.log(f.b)
 ƒ (){}
 undefined
 ```
-细看我们可以发现这道题并不难，对于`f.a`，JavaScript 解释器会安装原型链的规则去找 f 的 a 属性：
+细看我们可以发现这道题并不难，对于`f.a`，JavaScript 解释器会按照原型链的规则去查找 f 的 a 属性：
 1. 在 f 本身查找是否有 a 属性，显然没有，接下来将会进入 f 的原型链查找
 1. 查找`f.__proto__`是否有 a 属性，而`f.__proto__ === F.prototype`，显然也没有
 1. 继续查找`f.__proto__.__proto__`，即`F.prototype.__proto__`，而`F.prototype.__proto__ === Object.prototype`，可以发现`Object.prototype` 中有 a 属性
