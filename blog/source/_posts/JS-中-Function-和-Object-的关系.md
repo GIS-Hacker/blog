@@ -67,6 +67,23 @@ Object == Function // false
 1. 利用装备上 prototype 的 Object 和 Function，便可以实现 new 运算。道生一，一生二，二生三，三生万物...
 
 结合该图和 instanceof 的判断规则，我们可以解释上面的结果：
+
+先附上 instanceof 判断规则的伪代码：
+```js
+function instance_of(L, R) { // L 表示左表达式，R 表示右表达式
+if (isBasicType(L)) return false; // 如果是基础类型之间返回 false
+ var O = R.prototype; // 取 R 的显示原型
+ L = L.__proto__; // 取 L 的隐式原型
+ while (true) { 
+   if (L === null) 
+     return false; 
+   if (O === L)
+     return true; 
+   L = L.__proto__; 
+ } 
+}
+```
+结果解释：
 ```js
 F instanceof Object // true, F.__proto__.__proto__ === '函数原型'.__proto__ === '对象原型' === Object.prototype
 F instanceof Function // true, F.__proto__ === '函数原型' === Function.prototype
