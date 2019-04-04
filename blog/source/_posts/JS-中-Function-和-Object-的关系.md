@@ -15,7 +15,7 @@ Function.prototype.b = function(){}
 console.log(f.a)
 console.log(f.b)
 ```
-这段代码会输出什么？
+请问这段代码会输出什么？
 <!-- more -->
 打开浏览器控制台，将上面这段代码复制进去，回车，我们可以得到它的答案：
 ```js
@@ -69,6 +69,6 @@ Function instanceof Object // true, Function.__proto__.__proto__ === '函数原�
 我们还可以从上图发现其它一些有趣的信息：
 ```js
 Function.prototype === Function.__proto__ // true
-Object.prototype === Object.__proto__.__proto__
+Object.prototype === Object.__proto__.__proto__ // true
 ```
 好了到此为止，我不该入门前端的...
