@@ -71,16 +71,16 @@ Object == Function // false
 先附上 instanceof 判断规则的伪代码：
 ```js
 function instance_of(L, R) { // L 表示左表达式，R 表示右表达式
-if (isBasicType(L)) return false; // 如果是基础类型之间返回 false
- var O = R.prototype; // 取 R 的显示原型
- L = L.__proto__; // 取 L 的隐式原型
- while (true) { 
-   if (L === null) 
-     return false; 
-   if (O === L)
-     return true; 
-   L = L.__proto__; 
- } 
+  if (isBasicType(L)) return false; // 如果是基础类型之间返回 false
+  var O = R.prototype; // 取 R 的显示原型
+  L = L.__proto__; // 取 L 的隐式原型
+  while (true) { 
+    if (L === null) 
+      return false; 
+    if (O === L)
+      return true; 
+    L = L.__proto__; 
+  } 
 }
 ```
 结果解释：
